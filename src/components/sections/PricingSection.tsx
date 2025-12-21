@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Check, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { stripeConfig } from "@/config/stripe";
 
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -119,11 +120,10 @@ const PricingSection = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-3xl p-6 transition-all duration-300 ${
-                plan.popular
-                  ? "bg-primary text-primary-foreground scale-105 shadow-glow"
-                  : "bg-card border border-border hover:border-primary/30"
-              }`}
+              className={`rounded-3xl p-6 transition-all duration-300 ${plan.popular
+                ? "bg-primary text-primary-foreground scale-105 shadow-glow"
+                : "bg-card border border-border hover:border-primary/30"
+                }`}
             >
               {plan.popular && (
                 <div className="text-center mb-4">
@@ -144,22 +144,35 @@ const PricingSection = () => {
                 <p className={`text-sm mt-2 ${plan.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
                   {isAnnual ? "Billed yearly" : "Billed monthly"}
                 </p>
-                <div className={`mt-2 inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                  plan.popular ? "bg-primary-foreground/20" : "bg-primary/10 text-primary"
-                }`}>
+                <div className={`mt-2 inline-block px-3 py-1 rounded-full text-xs font-medium ${plan.popular ? "bg-primary-foreground/20" : "bg-primary/10 text-primary"
+                  }`}>
                   {plan.credits} credits/mo. • {plan.costPerInterview}/interview
                 </div>
               </div>
 
+              import {stripeConfig} from "@/config/stripe";
+
+const PricingSection = () => {
+  const [isAnnual, setIsAnnual] = useState(true);
+
+              // ... (plans definition remains the same)
+
+              return (
+              // ... (rest of the component)
               <Button
                 asChild
-                className={`w-full mb-6 ${
-                  plan.popular
-                    ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                    : "bg-primary text-primary-foreground hover:bg-lime-dark"
-                }`}
+                className={`w-full mb-6 ${plan.popular
+                  ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                  : "bg-primary text-primary-foreground hover:bg-lime-dark"
+                  }`}
               >
-                <Link to="/pricing">Buy Now</Link>
+                <a
+                  href={stripeConfig.plans[plan.name]?.[isAnnual ? "annual" : "monthly"] || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy Now
+                </a>
               </Button>
 
               <div className="space-y-3">

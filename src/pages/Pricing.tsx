@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Check, X, Calculator, TrendingUp } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { stripeConfig } from "@/config/stripe";
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -153,8 +154,8 @@ const Pricing = () => {
                 <div
                   key={plan.name}
                   className={`rounded-3xl p-6 transition-all duration-300 ${plan.popular
-                      ? "bg-primary text-primary-foreground scale-105 shadow-glow"
-                      : "bg-card border border-border hover:border-primary/30"
+                    ? "bg-primary text-primary-foreground scale-105 shadow-glow"
+                    : "bg-card border border-border hover:border-primary/30"
                     }`}
                 >
                   {plan.popular && (
@@ -183,12 +184,19 @@ const Pricing = () => {
                   </div>
 
                   <Button
+                    asChild
                     className={`w-full mb-6 ${plan.popular
-                        ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                        : "bg-primary text-primary-foreground hover:bg-lime-dark"
+                      ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                      : "bg-primary text-primary-foreground hover:bg-lime-dark"
                       }`}
                   >
-                    Buy Now
+                    <a
+                      href={stripeConfig.plans[plan.name]?.[isAnnual ? "annual" : "monthly"] || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Buy Now
+                    </a>
                   </Button>
 
                   <div className="space-y-3">
@@ -236,8 +244,8 @@ const Pricing = () => {
                 <button
                   onClick={() => setActiveTab("calculator")}
                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "calculator"
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
                   <Calculator className="w-4 h-4" />
@@ -246,8 +254,8 @@ const Pricing = () => {
                 <button
                   onClick={() => setActiveTab("roi")}
                   className={`flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "roi"
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
                   <TrendingUp className="w-4 h-4" />
@@ -344,8 +352,17 @@ const Pricing = () => {
                       </div>
                     </div>
 
-                    <Button className="w-full mt-8 bg-primary text-primary-foreground hover:bg-lime-dark">
-                      Purchase Credits
+                    <Button
+                      asChild
+                      className="w-full mt-8 bg-primary text-primary-foreground hover:bg-lime-dark"
+                    >
+                      <a
+                        href={stripeConfig.buyCreditsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Purchase Credits
+                      </a>
                     </Button>
                   </div>
                 </div>

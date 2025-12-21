@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Video, Phone, FileText, ArrowDown, Sparkles } from "lucide-react";
-import heroDashboard from "@/assets/hero-dashboard.png";
+import heroDashboard from "@/assets/hero-dashboard-new.png";
 import aiAvatar from "@/assets/ai-avatar.png";
 
 const HeroSection = () => {
