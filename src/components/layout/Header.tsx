@@ -106,13 +106,26 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" className="text-foreground/80 hover:text-foreground">
-              Login
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-foreground/80 hover:text-foreground">
+                  Login <ChevronDown className="w-4 h-4 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="glass">
+                <DropdownMenuItem>
+                  Employer Login
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  Job Seeker Login
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button className="bg-primary text-primary-foreground hover:bg-lime-dark font-semibold px-6">
               Buy Now
             </Button>
           </div>
+
 
           {/* Mobile Menu Button */}
           <button
@@ -153,16 +166,24 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
-              </a>
-              <div className="flex gap-3 pt-4">
-                <Button variant="outline" className="flex-1">Login</Button>
-                <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
-              </div>
+            </div>
+            <div className="space-y-2 pt-2">
+              <p className="font-semibold text-sm text-muted-foreground">Login</p>
+              <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                Employer Login
+              </button>
+              <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                Job Seeker Login
+              </button>
+            </div>
+            <div className="flex gap-3 pt-4">
+              <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
             </div>
           </div>
+          </div>
         )}
-      </nav>
-    </header>
+    </nav>
+    </header >
   );
 };
 
