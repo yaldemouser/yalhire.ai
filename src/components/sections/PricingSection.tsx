@@ -169,15 +169,7 @@ const PricingSection = () => {
                 </div>
               </div>
 
-              import {stripeConfig} from "@/config/stripe";
 
-const PricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
-              // ... (plans definition remains the same)
-
-              return (
-              // ... (rest of the component)
               <Button
                 asChild
                 className={`w-full mb-6 ${plan.popular
