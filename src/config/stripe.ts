@@ -13,6 +13,10 @@ export interface StripeConfig {
 
 export const stripeConfig: StripeConfig = {
     plans: {
+        Free: {
+            monthly: "/signup",
+            annual: "/signup",
+        },
         Lite: {
             monthly: "https://buy.stripe.com/placeholder_lite_monthly",
             annual: "https://buy.stripe.com/placeholder_lite_annual",

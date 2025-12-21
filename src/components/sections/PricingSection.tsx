@@ -10,6 +10,25 @@ const PricingSection = () => {
 
   const plans = [
     {
+      name: "Free",
+      price: 0,
+      credits: 5,
+      costPerInterview: "$0",
+      popular: false,
+      features: {
+        "One-way Interview": true,
+        "Two-way Interview": true,
+        "AI Coding Interviewer": true,
+        "AI Phone Screener": true,
+        "AI Resume Screener": true,
+        "Users": "1",
+        "Active job posts": "1",
+        "Video retention": "7 days",
+        "Interview duration": "10 mins",
+        "AI Voices": "1",
+      },
+    },
+    {
       name: "Lite",
       price: isAnnual ? 99 : 119,
       credits: 20,
@@ -116,7 +135,7 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-full mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
