@@ -236,7 +236,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-:: -webkit-scrollbar-thumb {
   background: hsl(142 72% 29%);
   border-radius: 4px;
 }
