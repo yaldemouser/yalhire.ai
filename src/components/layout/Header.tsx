@@ -166,23 +166,23 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
+              </a>
+              <div className="space-y-2 pt-2">
+                <p className="font-semibold text-sm text-muted-foreground">Login</p>
+                <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                  Employer Login
+                </button>
+                <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                  Job Seeker Login
+                </button>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
+              </div>
             </div>
-            <div className="space-y-2 pt-2">
-              <p className="font-semibold text-sm text-muted-foreground">Login</p>
-              <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
-                Employer Login
-              </button>
-              <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
-                Job Seeker Login
-              </button>
-            </div>
-            <div className="flex gap-3 pt-4">
-              <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
-            </div>
-          </div>
           </div>
         )}
-    </nav>
+      </nav>
     </header >
   );
 };
