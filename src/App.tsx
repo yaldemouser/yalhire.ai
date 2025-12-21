@@ -9,6 +9,11 @@ import AIVideoInterviewer from "./pages/AIVideoInterviewer";
 import AIPhoneScreener from "./pages/AIPhoneScreener";
 import AIResumeScreener from "./pages/AIResumeScreener";
 import AICodingInterviewer from "./pages/AICodingInterviewer";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import HelpCenter from "./pages/HelpCenter";
+import CaseStudies from "./pages/CaseStudies";
+import APIDocs from "./pages/APIDocs";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -27,9 +32,11 @@ const App = () => (
           <Route path="/ai-phone-screener" element={<AIPhoneScreener />} />
           <Route path="/ai-resume-screener" element={<AIResumeScreener />} />
           <Route path="/ai-coding-interviewer" element={<AICodingInterviewer />} />
-          <Route path="/help" element={<ComingSoon />} />
-          <Route path="/case-studies" element={<ComingSoon />} />
-          <Route path="/docs" element={<ComingSoon />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/help" element={<HelpCenter />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/docs" element={<APIDocs />} />
           <Route path="/enterprise" element={<ComingSoon />} />
           <Route path="/startups" element={<ComingSoon />} />
           <Route path="/agencies" element={<ComingSoon />} />
