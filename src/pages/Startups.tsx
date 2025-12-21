@@ -34,10 +34,8 @@ const Startups = () => {
         {
             icon: TrendingUp,
             title: "Scale Seamlessly",
-            description: "Start free,
-
- upgrade as you grow.Our platform scales with your team"
-    }
+            description: "Start free, upgrade as you grow. Our platform scales with your team"
+        }
     ];
 
     return (

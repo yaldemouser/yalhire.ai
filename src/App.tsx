@@ -18,6 +18,15 @@ import Enterprise from "./pages/Enterprise";
 import Startups from "./pages/Startups";
 import Agencies from "./pages/Agencies";
 import RemoteHiring from "./pages/RemoteHiring";
+import AboutUs from "./pages/AboutUs";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+import Press from "./pages/Press";
+import Partners from "./pages/Partners";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Security from "./pages/Security";
+import GDPR from "./pages/GDPR";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -45,7 +54,16 @@ const App = () => (
           <Route path="/startups" element={<Startups />} />
           <Route path="/agencies" element={<Agencies />} />
           <Route path="/remote-hiring" element={<RemoteHiring />} />
-          <Route path="/blog/:id" element={<ComingSoon />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/press" element={<Press />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/gdpr" element={<GDPR />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

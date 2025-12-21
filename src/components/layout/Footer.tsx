@@ -19,18 +19,18 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    { name: "About Us", href: "/coming-soon" },
-    { name: "Careers", href: "/coming-soon" },
-    { name: "Contact", href: "/coming-soon" },
-    { name: "Press", href: "/coming-soon" },
-    { name: "Partners", href: "/coming-soon" },
+    { name: "About Us", href: "/about" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact", href: "/contact" },
+    { name: "Press", href: "/press" },
+    { name: "Partners", href: "/partners" },
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy", href: "/coming-soon" },
-    { name: "Terms of Service", href: "/coming-soon" },
-    { name: "Security", href: "/coming-soon" },
-    { name: "GDPR", href: "/coming-soon" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Security", href: "/security" },
+    { name: "GDPR", href: "/gdpr" },
   ];
 
   const socialLinks = [
