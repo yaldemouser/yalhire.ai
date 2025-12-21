@@ -14,6 +14,10 @@ import BlogPost from "./pages/BlogPost";
 import HelpCenter from "./pages/HelpCenter";
 import CaseStudies from "./pages/CaseStudies";
 import APIDocs from "./pages/APIDocs";
+import Enterprise from "./pages/Enterprise";
+import Startups from "./pages/Startups";
+import Agencies from "./pages/Agencies";
+import RemoteHiring from "./pages/RemoteHiring";
 import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
@@ -37,10 +41,10 @@ const App = () => (
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/docs" element={<APIDocs />} />
-          <Route path="/enterprise" element={<ComingSoon />} />
-          <Route path="/startups" element={<ComingSoon />} />
-          <Route path="/agencies" element={<ComingSoon />} />
-          <Route path="/remote-hiring" element={<ComingSoon />} />
+          <Route path="/enterprise" element={<Enterprise />} />
+          <Route path="/startups" element={<Startups />} />
+          <Route path="/agencies" element={<Agencies />} />
+          <Route path="/remote-hiring" element={<RemoteHiring />} />
           <Route path="/blog/:id" element={<ComingSoon />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="*" element={<NotFound />} />
