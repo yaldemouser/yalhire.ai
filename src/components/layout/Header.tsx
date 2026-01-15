@@ -113,11 +113,11 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="glass">
-                <DropdownMenuItem>
-                  Employer Login
+                <DropdownMenuItem asChild>
+                  <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer">Employer Login</a>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  Job Seeker Login
+                <DropdownMenuItem asChild>
+                  <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer">Job Seeker Login</a>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -169,12 +169,12 @@ const Header = () => {
               </a>
               <div className="space-y-2 pt-2">
                 <p className="font-semibold text-sm text-muted-foreground">Login</p>
-                <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
                   Employer Login
-                </button>
-                <button className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                </a>
+                <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
                   Job Seeker Login
-                </button>
+                </a>
               </div>
               <div className="flex gap-3 pt-4">
                 <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
