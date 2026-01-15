@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Linkedin, Youtube, Instagram } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const productLinks = [
@@ -48,10 +49,8 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">T</span>
-              </div>
-              <span className="font-heading font-bold text-2xl">YalHire</span>
+              <img src={logo} alt="YalHire Logo" className="w-10 h-10 object-contain bg-white rounded-xl p-1" />
+              <span className="font-heading font-bold text-2xl">Y'alHire</span>
             </Link>
             <p className="text-white/60 text-sm mb-6 max-w-xs">
               AI-powered recruiting software that helps you find the right talent faster and smarter.

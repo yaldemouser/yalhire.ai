@@ -8,7 +8,9 @@ import { stripeConfig } from "@/config/stripe";
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
-  const plans = [
+  const [userType, setUserType] = useState<"employer" | "candidate">("employer");
+
+  const employerPlans = [
     {
       name: "Free",
       price: 0,
@@ -106,6 +108,87 @@ const PricingSection = () => {
     },
   ];
 
+  const candidatePlans = [
+    {
+      name: "Lite",
+      price: 5,
+      credits: 20,
+      costPerInterview: "~$0.25",
+      popular: false,
+      features: {
+        "One-way Interview": true,
+        "Two-way Interview": false,
+        "AI Coding Interviewer": false,
+        "AI Phone Screener": true,
+        "AI Resume Screener": true,
+        "Users": "1",
+        "Active job posts": "1",
+        "Video retention": "15 days",
+        "Interview duration": "10 mins",
+        "AI Voices": "1",
+      },
+    },
+    {
+      name: "Starter",
+      price: 9,
+      credits: 70,
+      costPerInterview: "~$0.13",
+      popular: false,
+      features: {
+        "One-way Interview": true,
+        "Two-way Interview": true,
+        "AI Coding Interviewer": true,
+        "AI Phone Screener": true,
+        "AI Resume Screener": true,
+        "Users": "1",
+        "Active job posts": "5",
+        "Video retention": "30 days",
+        "Interview duration": "15 mins",
+        "AI Voices": "2",
+      },
+    },
+    {
+      name: "Growth",
+      price: 19,
+      credits: 600,
+      costPerInterview: "~$0.03",
+      popular: true,
+      features: {
+        "One-way Interview": true,
+        "Two-way Interview": true,
+        "AI Coding Interviewer": true,
+        "AI Phone Screener": true,
+        "AI Resume Screener": true,
+        "Users": "1",
+        "Active job posts": "20",
+        "Video retention": "45 days",
+        "Interview duration": "20 mins",
+        "AI Voices": "3",
+      },
+    },
+    {
+      name: "Pro",
+      price: 29,
+      credits: 5000,
+      costPerInterview: "~$0.01",
+      popular: false,
+      features: {
+        "One-way Interview": true,
+        "Two-way Interview": true,
+        "AI Coding Interviewer": true,
+        "AI Phone Screener": true,
+        "AI Resume Screener": true,
+        "Users": "1",
+        "Active job posts": "Unlimited",
+        "Video retention": "90 days",
+        "Interview duration": "45 mins",
+        "AI Voices": "5",
+      },
+    },
+  ];
+
+  const currentPlans = userType === "employer" ? employerPlans : candidatePlans;
+
   return (
     <section className="py-24 bg-secondary/30" id="pricing">
       <div className="container mx-auto px-4">
@@ -118,7 +201,31 @@ const PricingSection = () => {
             Pricing Plans
           </h3>
 
-          {/* Toggle */}
+          {/* User Type Toggle */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-card border border-border p-1 rounded-xl inline-flex">
+              <button
+                onClick={() => setUserType("employer")}
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${userType === "employer"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
+              >
+                Employer
+              </button>
+              <button
+                onClick={() => setUserType("candidate")}
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${userType === "candidate"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
+              >
+                Candidate
+              </button>
+            </div>
+          </div>
+
+          {/* Billing Toggle (Only show for Annual/Monthly logic if needed, kept for consistency) */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <span className={`text-sm ${!isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
               Pay monthly
@@ -135,8 +242,8 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-full mx-auto">
-          {plans.map((plan) => (
+        <div className={`grid gap-4 max-w-full mx-auto justify-center md:grid-cols-2 ${currentPlans.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}>
+          {currentPlans.map((plan) => (
             <div
               key={plan.name}
               className={`rounded-3xl p-6 transition-all duration-300 ${plan.popular
@@ -178,7 +285,7 @@ const PricingSection = () => {
                   }`}
               >
                 <a
-                  href={stripeConfig.plans[plan.name]?.[isAnnual ? "annual" : "monthly"] || "#"}
+                  href={(userType === 'employer' ? stripeConfig.plans[plan.name] : stripeConfig.candidatePlans[plan.name])?.[isAnnual ? "annual" : "monthly"] || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

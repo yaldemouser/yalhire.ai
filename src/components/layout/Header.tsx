@@ -9,6 +9,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import logo from "@/assets/logo.png";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -48,10 +50,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">Y</span>
-            </div>
-            <span className="font-heading font-bold text-xl text-foreground">YalHire</span>
+            <img src={logo} alt="YalHire Logo" className="w-10 h-10 object-contain" />
+            <span className="font-heading font-bold text-xl text-foreground">Y'alHire</span>
           </Link>
 
           {/* Desktop Navigation */}
