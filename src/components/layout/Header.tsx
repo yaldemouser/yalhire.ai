@@ -114,10 +114,10 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="glass">
                 <DropdownMenuItem asChild>
-                  <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer">Employer Login</a>
+                  <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer">Employer Login</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer">Job Seeker Login</a>
+                  <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer">Job Seeker Login</a>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -169,10 +169,10 @@ const Header = () => {
               </a>
               <div className="space-y-2 pt-2">
                 <p className="font-semibold text-sm text-muted-foreground">Login</p>
-                <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
                   Employer Login
                 </a>
-                <a href="http://demo.yal.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
+                <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block py-2 text-foreground/80 hover:text-foreground w-full text-left">
                   Job Seeker Login
                 </a>
               </div>
