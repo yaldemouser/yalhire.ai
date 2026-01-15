@@ -121,8 +121,8 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button className="bg-primary text-primary-foreground hover:bg-lime-dark font-semibold px-6">
-              Buy Now
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-lime-dark font-semibold px-6">
+              <Link to="/pricing">Buy Now</Link>
             </Button>
           </div>
 
@@ -177,7 +177,9 @@ const Header = () => {
                 </a>
               </div>
               <div className="flex gap-3 pt-4">
-                <Button className="flex-1 bg-primary text-primary-foreground">Buy Now</Button>
+                <Button asChild className="flex-1 bg-primary text-primary-foreground">
+                  <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>Buy Now</Link>
+                </Button>
               </div>
             </div>
           </div>
