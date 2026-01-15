@@ -49,7 +49,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="YalHire Logo" className="w-10 h-10 object-contain bg-white rounded-xl p-1" />
+              <img src={logo} alt="YalHire Logo" className="w-16 h-16 object-contain bg-white rounded-xl p-1" />
               <span className="font-heading font-bold text-2xl">Y'alHire</span>
             </Link>
             <p className="text-white/60 text-sm mb-6 max-w-xs">
