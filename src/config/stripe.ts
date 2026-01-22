@@ -39,7 +39,7 @@ export const stripeConfig: StripeConfig = {
     },
     candidatePlans: {
         Lite: {
-            monthly: import.meta.env.VITE_STRIPE_CANDIDATE_LITE_MONTHLY || "https://buy.stripe.com/placeholder_candidate_lite_monthly",
+            monthly: import.meta.env.VITE_STRIPE_CANDIDATE_LITE_MONTHLY || "https://buy.stripe.com/test_14A3cxd9ofV42843Ng4gg00",
             annual: import.meta.env.VITE_STRIPE_CANDIDATE_LITE_ANNUAL || "https://buy.stripe.com/placeholder_candidate_lite_annual",
         },
         Starter: {
