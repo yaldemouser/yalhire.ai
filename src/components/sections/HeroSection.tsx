@@ -12,117 +12,102 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-gradient-hero">
-      {/* Background Elements */}
+    <section className="relative min-h-screen pt-44 pb-32 overflow-hidden mesh-gradient">
+      {/* Background Orbs - Refined for premium look */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
+        <div className="absolute -top-24 -left-24 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute -bottom-24 -right-24 w-[600px] h-[600px] bg-brand-accent/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* AI Chat Interface */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <img src={aiAvatar} alt="AI Assistant" className="w-12 h-12 rounded-full" />
-            <span className="text-lg text-muted-foreground">Hello 👋</span>
+        {/* AI Chat Interface - ChatGPT-like Premium Look */}
+        <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 rounded-2xl glass-morphism border-white/40">
+            <img src={aiAvatar} alt="AI Assistant" className="w-10 h-10 rounded-full ring-2 ring-primary/20" />
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">YalHire AI v2.0</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-heading text-muted-foreground mb-8">
-            What can I do for you?
+
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-foreground mb-12 tracking-tighter">
+            Hire <span className="text-primary italic">Faster</span>. Hire <span className="text-primary italic">Smarter</span>.
           </h2>
 
-          {/* Chat Input */}
-          <div className="relative max-w-2xl mx-auto mb-6">
-            <div className="glass rounded-2xl p-2 shadow-card">
-              <div className="flex items-center gap-3">
-                <Input
-                  placeholder="Send message to YalHire..."
-                  className="flex-1 border-0 bg-transparent focus-visible:ring-0 text-lg py-6 px-4"
-                />
-                <Button size="icon" className="w-12 h-12 rounded-xl bg-primary text-primary-foreground hover:bg-lime-dark">
-                  <ArrowDown className="w-5 h-5 rotate-[225deg]" />
+          {/* Premium Chat Input */}
+          <div className="relative max-w-3xl mx-auto mb-8 group">
+            <div className="glass-morphism rounded-[2rem] p-4 premium-shadow border-white/60 transition-all duration-500 group-hover:shadow-primary/10 group-focus-within:ring-2 group-focus-within:ring-primary/20">
+              <div className="flex items-center gap-4">
+                <div className="flex-1">
+                  <Input
+                    placeholder="Ask YalHire to schedule a video interview..."
+                    className="border-0 bg-transparent focus-visible:ring-0 text-xl font-medium px-4 h-14"
+                  />
+                </div>
+                <Button className="w-14 h-14 rounded-2xl premium-gradient text-white shadow-lg transition-transform hover:scale-105 active:scale-95">
+                  <ArrowDown className="w-6 h-6 rotate-[-135deg]" />
                 </Button>
               </div>
             </div>
-          </div>
 
-          {/* Quick Action Chips */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {quickActions.map((action) => (
-              <button
-                key={action.label}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border bg-card hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
-              >
-                <action.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                <span className="text-sm font-medium">{action.label}</span>
-              </button>
-            ))}
+            {/* Quick Action Chips - Modernized */}
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              {quickActions.map((action) => (
+                <button
+                  key={action.label}
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl glass-morphism border-white/40 hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                >
+                  <action.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-bold text-foreground/80 group-hover:text-primary">{action.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
-
-          {/* Explore Button */}
-          <button className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-            <span>Explore YalHire</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" />
-          </button>
         </div>
 
-        {/* Hero Content */}
-        <div className="max-w-5xl mx-auto text-center mt-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">AI-Powered Recruiting</span>
+        {/* Hero Content - Impactful Headline */}
+        <div className="max-w-6xl mx-auto text-center mb-24">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The Future of AI Recruiting</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
-            <span className="text-gradient-lime">AI Recruiting</span> Software
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black mb-8 leading-[0.9] tracking-tight text-gradient">
+            WORLD'S #1 <br />
+            <span className="text-primary">AI HIRING</span> HUB
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Our AI recruiting software empowers scaling teams and enterprises to streamline
-            the hiring process with intelligent AI agents.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
+            Revolutionize your hiring workflow with autonomous AI agents that interview, screen, and rank candidates globally.
           </p>
 
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="glass rounded-2xl p-6 text-left hover:shadow-card-hover transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Video className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold mb-2">Human-like Interviews</h3>
-              <p className="text-sm text-muted-foreground">
-                AI conducts human-like video interviews, coding assessments, and screenings.
-              </p>
+          {/* Visual Divider / Dashboard Preview */}
+          <div className="relative max-w-6xl mx-auto animate-float">
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-brand-accent/20 rounded-[3rem] blur-3xl opacity-50 -z-10" />
+            <div className="glass-morphism rounded-[2.5rem] p-4 border-white/60 premium-shadow">
+              <img
+                src={heroDashboard}
+                alt="AI Recruiting Dashboard"
+                className="w-full rounded-[2rem] shadow-2xl transition-transform duration-700 hover:scale-[1.01]"
+              />
             </div>
 
-            <div className="glass rounded-2xl p-6 text-left hover:shadow-card-hover transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <FileText className="w-5 h-5 text-primary" />
+            {/* Floating Card Overlays for depth */}
+            <div className="absolute -top-10 -right-10 w-64 glass-morphism rounded-3xl p-6 border-white-40 hidden lg:block animate-float" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Video className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase text-muted-foreground">Video AI</p>
+                  <p className="text-sm font-bold">Interviewing...</p>
+                </div>
               </div>
-              <h3 className="font-heading font-semibold mb-2">Data-driven Reports</h3>
-              <p className="text-sm text-muted-foreground">
-                Make hiring smarter with detailed data-driven reports and insights.
-              </p>
-            </div>
-
-            <div className="glass rounded-2xl p-6 text-left hover:shadow-card-hover transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Sparkles className="w-5 h-5 text-primary" />
+              <div className="space-y-2">
+                <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
+                  <div className="h-full w-2/3 bg-primary rounded-full" />
+                </div>
+                <p className="text-[10px] font-bold text-primary">87% CONFIDENCE SCORE</p>
               </div>
-              <h3 className="font-heading font-semibold mb-2">Interview Intelligence</h3>
-              <p className="text-sm text-muted-foreground">
-                Built-in cheat detection and proctoring ensures fair assessments.
-              </p>
             </div>
           </div>
-        </div>
-
-        {/* Hero Dashboard Image */}
-        <div className="max-w-6xl mx-auto relative animate-float">
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none h-40 bottom-0 top-auto" />
-          <img
-            src={heroDashboard}
-            alt="AI Recruiting Dashboard"
-            className="w-full rounded-3xl shadow-glow"
-          />
         </div>
       </div>
     </section>

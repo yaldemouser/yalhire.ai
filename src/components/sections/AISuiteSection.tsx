@@ -63,64 +63,71 @@ const AISuiteSection = () => {
   const activeFeature = features[activeTab];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+    <section className="py-32 bg-background relative overflow-hidden">
+      {/* Premium Background Orbs */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            Recruitment <span className="text-gradient-lime">Automation</span> Software Suite
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-6 backdrop-blur-sm">
+            <Check className="w-3 h-3 text-primary" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">All-IN-ONE PLATFORM</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-heading font-black mb-8 tracking-tighter text-gradient leading-tight">
+            THE WORLD'S MOST ADVANCED <br />
+            <span className="text-primary italic">AI RECRUITING SUITE</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our wide range of AI tools for recruitment to speed up your hiring 
-            process and deliver the talent your business needs to grow.
+          <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+            Every tool you need to find, interview, and hire the best talent on the planet, powered by autonomous AI agents.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Tab Navigation */}
-          <div className="space-y-4">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Tab Navigation - Premium Vertical Style */}
+          <div className="space-y-6">
             {features.map((feature, index) => (
               <button
                 key={feature.id}
                 onClick={() => setActiveTab(index)}
-                className={`w-full text-left p-6 rounded-2xl transition-all duration-300 ${
-                  activeTab === index
-                    ? "bg-primary text-primary-foreground shadow-glow-sm"
-                    : "bg-card border border-border hover:border-primary/30"
-                }`}
+                className={`w-full text-left p-8 rounded-3xl transition-all duration-500 group relative overflow-hidden ${activeTab === index
+                    ? "glass-morphism border-primary/20 shadow-2xl shadow-primary/5"
+                    : "bg-transparent border border-transparent hover:border-white/40 hover:glass-morphism"
+                  }`}
               >
-                <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                    activeTab === index ? "bg-primary-foreground/20" : "bg-primary/10"
-                  }`}>
-                    <feature.icon className={`w-6 h-6 ${
-                      activeTab === index ? "text-primary-foreground" : "text-primary"
-                    }`} />
+                {activeTab === index && (
+                  <div className="absolute inset-y-0 left-0 w-1.5 bg-primary rounded-r-full" />
+                )}
+
+                <div className="flex items-start gap-6">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${activeTab === index
+                      ? "premium-gradient text-white shadow-lg shadow-primary/20 scale-110"
+                      : "bg-white/40 glass-morphism text-primary group-hover:scale-105"
+                    }`}>
+                    <feature.icon className="w-7 h-7" />
                   </div>
+
                   <div className="flex-1">
-                    <h3 className="font-heading font-semibold text-lg mb-2">
+                    <h3 className={`font-heading font-bold text-xl mb-3 transition-colors ${activeTab === index ? "text-foreground" : "text-foreground/60 group-hover:text-foreground"
+                      }`}>
                       {feature.title}
                     </h3>
+
                     {activeTab === index && (
-                      <div className="animate-slide-up">
-                        <p className={`text-sm mb-4 ${
-                          activeTab === index ? "text-primary-foreground/80" : "text-muted-foreground"
-                        }`}>
+                      <div className="animate-in fade-in slide-in-from-top-4 duration-700">
+                        <p className="text-muted-foreground font-medium mb-6 leading-relaxed">
                           {feature.description}
                         </p>
-                        <ul className="space-y-2">
+                        <div className="grid grid-cols-1 gap-3">
                           {feature.points.map((point, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm">
-                              <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                                activeTab === index ? "text-primary-foreground" : "text-primary"
-                              }`} />
-                              <span>{point}</span>
-                            </li>
+                            <div key={i} className="flex items-center gap-3">
+                              <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                <Check className="w-3 h-3 text-primary" />
+                              </div>
+                              <span className="text-sm font-semibold text-foreground/80">{point}</span>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -129,15 +136,28 @@ const AISuiteSection = () => {
             ))}
           </div>
 
-          {/* Feature Image */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl" />
-            <img
-              src={activeFeature.image}
-              alt={activeFeature.title}
-              className="relative rounded-3xl shadow-card w-full animate-fade-in"
-              key={activeTab}
-            />
+          {/* Feature Image - High-end Frame */}
+          <div className="sticky top-40">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-brand-accent/10 rounded-[3rem] blur-3xl opacity-50 transition-opacity group-hover:opacity-70" />
+              <div className="glass-morphism rounded-[2.5rem] p-4 border-white/60 premium-shadow">
+                <img
+                  src={activeFeature.image}
+                  alt={activeFeature.title}
+                  className="relative rounded-[2rem] shadow-2xl w-full transition-all duration-700 animate-in fade-in zoom-in-95"
+                  key={activeTab}
+                />
+              </div>
+
+              {/* Contextual Floating Stats */}
+              <div className="absolute -bottom-8 -left-8 glass-morphism rounded-2xl p-6 border-white/40 shadow-xl animate-float">
+                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">Efficiency Boost</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black text-primary">85%</span>
+                  <span className="text-xs font-bold text-foreground">TIME SAVED</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
