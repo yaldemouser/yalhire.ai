@@ -100,11 +100,11 @@
 
 @layer utilities {
   .glass-morphism {
-    @apply backdrop-blur-md bg-white/40 border border-white/20 shadow-xl;
+    @apply backdrop-blur-md bg-white/70 border border-white/40 shadow-xl;
   }
 
   .glass-dark {
-    @apply backdrop-blur-md bg-black/40 border border-white/10 shadow-2xl;
+    @apply backdrop-blur-md bg-black/60 border border-white/10 shadow-2xl;
   }
 
   .premium-gradient {
@@ -116,6 +116,23 @@
     background-image:
       radial-gradient(at 0% 0%, hsla(158, 94%, 30%, 0.15) 0px, transparent 50%),
       radial-gradient(at 100% 0%, hsla(142, 70%, 45%, 0.1) 0px, transparent 50%);
+  }
+
+  .neural-bg {
+    background-color: #0c121e;
+    background-image:
+      radial-gradient(circle at 2px 2px, rgba(158, 255, 203, 0.1) 1px, transparent 0);
+    background-size: 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neural-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(158, 255, 203, 0.05) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .text-gradient {

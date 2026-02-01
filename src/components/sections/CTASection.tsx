@@ -4,52 +4,57 @@ import { ArrowRight, MessageSquare } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-dark relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px]" />
-      
+    <section className="py-40 relative overflow-hidden border-t border-border">
+      {/* Background decorations - High-End Aesthetic */}
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[160px] animate-pulse" />
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-            Enterprise - Grade{" "}
-            <span className="text-gradient-lime">Vibe Recruiting</span> Platform
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 mb-10 backdrop-blur-sm">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Get Started Today</span>
+          </div>
+
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-foreground mb-10 tracking-tighter leading-[0.9]">
+            RECRUITING <br />
+            <span className="text-primary italic">EVOLVED.</span>
           </h2>
-          
-          <p className="text-xl text-white/60 mb-4">
-            Pricing starts as low as <span className="text-primary font-semibold">$1.00</span> per interview
+
+          <p className="text-2xl text-muted-foreground font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+            Autonomous AI agents for world-class recruitment. <br />
+            Starting at only <span className="text-primary font-black">$1.00</span> per interview.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
             <Button
               asChild
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-lime-dark font-semibold px-8 py-6 text-lg"
+              className="premium-gradient text-white rounded-[2rem] px-12 py-10 font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-2xl shadow-primary/20 border-0"
             >
-              <Link to="/pricing" className="inline-flex items-center gap-2">
+              <Link to="/pricing" className="inline-flex items-center gap-3">
                 Purchase Credits
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
-            
+
             <Button
               variant="outline"
-              size="lg"
-              className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg"
+              className="bg-white/40 glass-morphism border-white/60 text-foreground rounded-[2rem] px-12 py-10 font-black uppercase tracking-[0.2em] text-sm hover:bg-primary hover:text-white hover:border-transparent transition-all duration-500 shadow-xl border-0"
             >
-              <MessageSquare className="w-5 h-5 mr-2" />
+              <MessageSquare className="w-4 h-4 mr-3" />
               Chat with Sales
             </Button>
           </div>
 
-          {/* Rating */}
-          <div className="mt-12 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10">
-            <div className="flex">
+          {/* Rating - Premium Badge */}
+          <div className="mt-20 inline-flex items-center gap-6 px-10 py-5 rounded-[2.5rem] bg-white/40 glass-morphism border-white/60 shadow-lg">
+            <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-primary text-lg">★</span>
+                <span key={i} className="text-primary text-xl">★</span>
               ))}
             </div>
-            <span className="text-white/80 text-sm font-medium">
-              Leader of customer satisfaction • Rated 5/5
+            <div className="h-8 w-px bg-foreground/10" />
+            <span className="text-foreground font-bold text-sm tracking-tight">
+              Leader of customer satisfaction. Rated 5/5
             </span>
           </div>
         </div>

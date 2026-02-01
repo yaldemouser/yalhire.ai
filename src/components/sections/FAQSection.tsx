@@ -42,31 +42,45 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            Frequently Asked <span className="text-gradient-lime">Questions</span>
+    <section className="py-32 bg-white relative overflow-hidden border-t border-border">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-6 backdrop-blur-sm">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Need Help?</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-heading font-black mb-8 tracking-tighter text-gradient leading-tight text-foreground">
+            FREQUENTLY ASKED <br />
+            <span className="text-primary italic">QUESTIONS</span>
           </h2>
+          <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+            Everything you need to know about YalHire's AI recruitment agents and platform.
+          </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-2xl border border-border px-6 data-[state=open]:border-primary/30"
+                className="glass-morphism rounded-[2rem] border-white/60 px-8 transition-all duration-300 data-[state=open]:border-primary/20 data-[state=open]:shadow-2xl overflow-hidden"
               >
-                <AccordionTrigger className="text-left font-heading font-semibold py-6 hover:no-underline hover:text-primary">
+                <AccordionTrigger className="text-left font-heading font-bold text-xl py-8 hover:no-underline hover:text-primary transition-colors text-foreground">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6">
+                <AccordionContent className="text-muted-foreground font-medium text-base pb-8 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+
+        <div className="text-center mt-20">
+          <p className="text-muted-foreground font-medium mb-6">Still have questions?</p>
+          <a href="/contact" className="inline-flex items-center gap-2 text-primary font-black uppercase tracking-widest text-xs hover:gap-4 transition-all">
+            Contact our support team <span className="text-xl">→</span>
+          </a>
         </div>
       </div>
     </section>

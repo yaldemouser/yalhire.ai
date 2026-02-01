@@ -190,98 +190,120 @@ const PricingSection = () => {
   const currentPlans = userType === "employer" ? employerPlans : candidatePlans;
 
   return (
-    <section className="py-24 bg-secondary/30" id="pricing">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-sm text-primary font-medium mb-2">Heavy on the features, but</p>
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            light on your <span className="text-gradient-lime">budget</span>
+    <section className="py-32 mesh-gradient relative border-t border-border" id="pricing">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-6 backdrop-blur-sm">
+            <Check className="w-3 h-3 text-primary" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Transparent Pricing</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-heading font-black mb-6 tracking-tighter text-gradient leading-tight">
+            PLANS THAT SCALE <br />
+            <span className="text-primary italic">WITH YOUR SUCCESS</span>
           </h2>
-          <h3 className="text-2xl md:text-3xl font-heading font-semibold mb-8">
-            Pricing Plans
-          </h3>
+          <p className="text-xl text-muted-foreground font-medium leading-relaxed mb-12">
+            Choose the perfect plan for your recruitment needs. From startups to global enterprises.
+          </p>
 
-          {/* User Type Toggle */}
-          <div className="flex justify-center mb-6">
-            <div className="bg-card border border-border p-1 rounded-xl inline-flex">
+          {/* User Type Toggle - Modernized */}
+          <div className="flex justify-center mb-10">
+            <div className="bg-white/40 glass-morphism p-1.5 rounded-2xl inline-flex shadow-sm border-white/20">
               <button
                 onClick={() => setUserType("employer")}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${userType === "employer"
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
+                className={`px-8 py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 ${userType === "employer"
+                  ? "premium-gradient text-white shadow-lg"
+                  : "text-foreground/60 hover:text-foreground"
                   }`}
               >
-                Employer
+                FOR EMPLOYERS
               </button>
               <button
                 onClick={() => setUserType("candidate")}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${userType === "candidate"
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
+                className={`px-8 py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 ${userType === "candidate"
+                  ? "premium-gradient text-white shadow-lg"
+                  : "text-foreground/60 hover:text-foreground"
                   }`}
               >
-                Candidate
+                FOR CANDIDATES
               </button>
             </div>
           </div>
 
-          {/* Billing Toggle (Only show for Annual/Monthly logic if needed, kept for consistency) */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`text-sm ${!isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
-              Pay monthly
+          {/* Billing Toggle - Refined */}
+          <div className="flex items-center justify-center gap-6 mb-12">
+            <span className={`text-sm font-bold transition-colors ${!isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
+              MONTHLY
             </span>
             <Switch
               checked={isAnnual}
               onCheckedChange={setIsAnnual}
-              className="data-[state=checked]:bg-primary"
+              className="data-[state=checked]:bg-primary shadow-sm"
             />
-            <span className={`text-sm ${isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
-              Pay annually & Save 20%
-            </span>
+            <div className="flex items-center gap-2">
+              <span className={`text-sm font-bold transition-colors ${isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
+                ANNUALLY
+              </span>
+              <span className="px-2 py-0.5 rounded-md bg-primary text-[10px] font-black text-white">SAVE 20%</span>
+            </div>
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className={`grid gap-4 max-w-full mx-auto justify-center md:grid-cols-2 ${currentPlans.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}>
+        {/* Pricing Cards - Premium Grid */}
+        <div className={`grid gap-8 max-w-7xl mx-auto justify-center md:grid-cols-2 ${currentPlans.length === 5 ? 'lg:grid-cols-5' : 'lg:grid-cols-4'}`}>
           {currentPlans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-3xl p-6 transition-all duration-300 ${plan.popular
-                ? "bg-primary text-primary-foreground scale-105 shadow-glow"
-                : "bg-card border border-border hover:border-primary/30"
+              className={`rounded-[2.5rem] p-8 transition-all duration-500 flex flex-col group relative ${plan.popular
+                ? "glass-morphism border-primary/20 scale-105 shadow-2xl z-20"
+                : "glass-morphism border-white/40 hover:border-primary/20 hover:scale-[1.02] shadow-xl"
                 }`}
             >
               {plan.popular && (
-                <div className="text-center mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary-foreground/20 text-xs font-medium">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-white text-[10px] font-black tracking-[0.2em] px-4 py-2 rounded-full uppercase shadow-lg shadow-primary/20">
                     Most Popular
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-6">
-                <h4 className="font-heading font-semibold text-xl mb-2">{plan.name}</h4>
+              <div className="text-center mb-10">
+                <h4 className="font-heading font-black text-2xl mb-4 group-hover:text-primary transition-colors text-foreground">{plan.name}</h4>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-heading font-bold">${plan.price}</span>
-                  <span className={plan.popular ? "text-primary-foreground/60" : "text-muted-foreground"}>
-                    /month
-                  </span>
+                  <span className="text-5xl font-heading font-black tracking-tighter text-foreground">${plan.price}</span>
+                  <span className="text-muted-foreground font-bold text-sm">/mo</span>
                 </div>
-                <p className={`text-sm mt-2 ${plan.popular ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                <p className="text-xs font-bold text-muted-foreground mt-2 uppercase tracking-widest">
                   {isAnnual ? "Billed yearly" : "Billed monthly"}
                 </p>
-                <div className={`mt-2 inline-block px-3 py-1 rounded-full text-xs font-medium ${plan.popular ? "bg-primary-foreground/20" : "bg-primary/10 text-primary"
-                  }`}>
-                  {plan.credits} credits/mo. • {plan.costPerInterview}/interview
+              </div>
+
+              <div className="flex-1 space-y-5 mb-10">
+                <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10 text-center">
+                  <p className="text-xs font-bold text-primary mb-1 uppercase tracking-wider">{plan.credits} CREDITS</p>
+                  <p className="text-[10px] font-bold text-muted-foreground">{plan.costPerInterview}/interview</p>
+                </div>
+
+                <div className="space-y-4">
+                  {Object.entries(plan.features).map(([feature, value]) => (
+                    <div key={feature} className="flex items-center justify-between text-xs font-bold">
+                      <span className="text-foreground/60">{feature}</span>
+                      {typeof value === "boolean" ? (
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${value ? "bg-primary/10" : "bg-muted/10 opacity-20"}`}>
+                          {value ? <Check className="w-3 h-3 text-primary" /> : <X className="w-3 h-3 text-muted-foreground" />}
+                        </div>
+                      ) : (
+                        <span className="text-primary lowercase">{value}</span>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
 
-
               <Button
                 asChild
-                className={`w-full mb-6 ${plan.popular
-                  ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                  : "bg-primary text-primary-foreground hover:bg-lime-dark"
+                className={`w-full py-8 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-300 ${plan.popular
+                  ? "premium-gradient text-white shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 border-0"
+                  : "bg-white/40 glass-morphism border-white/60 text-foreground hover:bg-primary hover:text-white hover:border-transparent hover:shadow-lg active:scale-95"
                   }`}
               >
                 <a
@@ -289,41 +311,31 @@ const PricingSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Buy Now
+                  Get Started
                 </a>
               </Button>
-
-              <div className="space-y-3">
-                {Object.entries(plan.features).map(([feature, value]) => (
-                  <div key={feature} className="flex items-center justify-between text-sm">
-                    <span className={plan.popular ? "text-primary-foreground/80" : "text-muted-foreground"}>
-                      {feature}
-                    </span>
-                    {typeof value === "boolean" ? (
-                      value ? (
-                        <Check className={`w-4 h-4 ${plan.popular ? "text-primary-foreground" : "text-primary"}`} />
-                      ) : (
-                        <X className="w-4 h-4 text-muted-foreground/40" />
-                      )
-                    ) : (
-                      <span className="font-medium">{value}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
             </div>
           ))}
         </div>
 
-        {/* Enterprise */}
-        <div className="max-w-3xl mx-auto mt-12">
-          <div className="glass rounded-3xl p-8 text-center">
-            <h4 className="font-heading font-bold text-2xl mb-2">Enterprise</h4>
-            <p className="text-muted-foreground mb-4">Custom solutions for large organizations</p>
-            <p className="text-lg font-medium mb-6">10k+ credits/mo. • Custom pricing</p>
-            <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              Contact Sales
-            </Button>
+        {/* Enterprise - Professional Card */}
+        <div className="max-w-4xl mx-auto mt-20">
+          <div className="neural-bg rounded-[3rem] p-12 text-center border border-white/10 shadow-3xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10">
+              <h4 className="font-heading font-black text-3xl mb-4 text-white">ENTERPRISE SOLUTIONS</h4>
+              <p className="text-white/60 font-medium mb-10 max-w-lg mx-auto leading-relaxed">
+                Custom credits, dedicated support, and advanced integrations for large scale operations.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+                <span className="px-6 py-2 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs tracking-widest uppercase">Unlimited Users</span>
+                <span className="px-6 py-2 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs tracking-widest uppercase">Dedicated Manager</span>
+                <span className="px-6 py-2 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs tracking-widest uppercase">SSO Integration</span>
+              </div>
+              <Button size="lg" className="premium-gradient text-white rounded-2xl px-12 py-8 font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-all border-0 shadow-2xl shadow-primary/20">
+                Contact Our Sales Team
+              </Button>
+            </div>
           </div>
         </div>
       </div>

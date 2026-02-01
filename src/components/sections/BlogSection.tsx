@@ -34,74 +34,80 @@ const blogPosts = [
 
 const BlogSection = () => {
     return (
-        <section id="blog" className="py-24 bg-card/50">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <section id="blog" className="py-32 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 max-w-7xl mx-auto">
                     <div className="max-w-2xl">
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-                            Latest from our <span className="text-gradient-lime">Blog</span>
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-6 backdrop-blur-sm">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Insights</span>
+                        </div>
+                        <h2 className="text-4xl md:text-6xl font-heading font-black mb-6 tracking-tighter text-gradient leading-tight text-foreground">
+                            LATEST FROM <br />
+                            <span className="text-primary italic">OUR BLOG</span>
                         </h2>
-                        <p className="text-lg text-muted-foreground">
+                        <p className="text-xl text-muted-foreground font-medium leading-relaxed">
                             Stay updated with the latest insights, trends, and best practices in
-                            AI-powered recruitment and talent management.
+                            the world of autonomous AI recruitment.
                         </p>
                     </div>
-                    <Button variant="outline" className="hidden md:flex gap-2 group border-primary/20 hover:border-primary/50">
-                        View All Posts <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <Button variant="outline" className="hidden md:flex rounded-2xl px-8 py-7 font-black uppercase tracking-[0.2em] text-[10px] group bg-white/40 glass-morphism border-white/60 text-foreground hover:bg-primary hover:text-white transition-all duration-500 border-0 shadow-xl">
+                        EXPLORE ALL INSIGHTS <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
                     </Button>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
                     {blogPosts.map((post) => (
                         <article
                             key={post.id}
-                            className="group bg-background rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card-hover"
+                            className="group flex flex-col glass-morphism rounded-[2.5rem] overflow-hidden border-white/60 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
                         >
-                            <div className="relative h-48 overflow-hidden">
+                            <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={post.image}
                                     alt={post.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
-                                <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-semibold">
+                                <div className="absolute top-6 left-6">
+                                    <span className="px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-lg">
                                         {post.category}
                                     </span>
                                 </div>
                             </div>
 
-                            <div className="p-6">
-                                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                                    <span className="flex items-center gap-1">
-                                        <Calendar className="w-3 h-3" /> {post.date}
+                            <div className="p-10 flex-1 flex flex-col">
+                                <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-6">
+                                    <span className="flex items-center gap-2">
+                                        <Calendar className="w-3 h-3 text-primary" /> {post.date}
                                     </span>
-                                    <span className="flex items-center gap-1">
-                                        <User className="w-3 h-3" /> {post.author}
+                                    <span className="flex items-center gap-2">
+                                        <User className="w-3 h-3 text-primary" /> {post.author}
                                     </span>
                                 </div>
 
-                                <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                <h3 className="text-2xl font-heading font-black mb-4 group-hover:text-primary transition-colors line-clamp-2 leading-tight text-foreground">
                                     <Link to={`/blog/${post.id}`}>{post.title}</Link>
                                 </h3>
 
-                                <p className="text-muted-foreground text-sm mb-6 line-clamp-3">
+                                <p className="text-muted-foreground font-medium text-sm mb-8 line-clamp-3 leading-relaxed">
                                     {post.excerpt}
                                 </p>
 
-                                <Link
-                                    to={`/blog/${post.id}`}
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
-                                >
-                                    Read More <ArrowRight className="w-4 h-4" />
-                                </Link>
+                                <div className="mt-auto">
+                                    <Link
+                                        to={`/blog/${post.id}`}
+                                        className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:gap-5 transition-all"
+                                    >
+                                        Read Article <ArrowRight className="w-3 h-3" />
+                                    </Link>
+                                </div>
                             </div>
                         </article>
                     ))}
                 </div>
 
-                <div className="mt-12 text-center md:hidden">
-                    <Button variant="outline" className="w-full gap-2">
-                        View All Posts <ArrowRight className="w-4 h-4" />
+                <div className="mt-16 text-center md:hidden">
+                    <Button variant="outline" className="w-full rounded-2xl py-8 font-black uppercase tracking-[0.2em] text-xs">
+                        EXPLORE ALL <ArrowRight className="w-4 h-4" />
                     </Button>
                 </div>
             </div>

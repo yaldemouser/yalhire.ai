@@ -43,41 +43,45 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-dark text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-[#0c121e] text-white pt-24 pb-12 border-t border-white/5">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="YalHire Logo" className="w-16 h-16 object-contain bg-white rounded-xl p-1" />
-              <span className="font-heading font-bold text-2xl">Y'alHire</span>
+          <div className="col-span-2 md:col-span-4 lg:col-span-2">
+            <Link to="/" className="flex items-center gap-2 mb-8 group">
+              <div className="bg-white rounded-2xl p-2 w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
+                <img src={logo} alt="YalHire Logo" className="w-8 h-8 object-contain" />
+              </div>
+              <span className="font-heading font-black text-3xl tracking-tighter">
+                Y<span className="text-primary">'</span>alHire
+              </span>
             </Link>
-            <p className="text-white/60 text-sm mb-6 max-w-xs">
-              AI-powered recruiting software that helps you find the right talent faster and smarter.
+            <p className="text-white/50 text-base mb-8 max-w-sm leading-relaxed font-medium">
+              Transforming Global Recruitment with Autonomous AI Agents. Hire faster, smarter, and without bias.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                  className="w-12 h-12 rounded-xl bg-white/5 hover:bg-primary hover:scale-110 flex items-center justify-center transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 text-white/70" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Product Links */}
-          <div>
-            <h4 className="font-heading font-semibold mb-4">Product</h4>
-            <ul className="space-y-3">
+          <div className="lg:pl-8">
+            <h4 className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-primary mb-8">Product</h4>
+            <ul className="space-y-4">
               {productLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-primary transition-colors text-sm"
+                    className="text-white/40 hover:text-white transition-colors text-sm font-semibold"
                   >
                     {link.name}
                   </Link>
@@ -86,15 +90,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources Links */}
-          <div>
-            <h4 className="font-heading font-semibold mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {resourceLinks.map((link) => (
+          {/* Resources & Company */}
+          <div className="lg:pl-8">
+            <h4 className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-primary mb-8">Company</h4>
+            <ul className="space-y-4">
+              {[...companyLinks, ...resourceLinks.slice(0, 1)].map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-primary transition-colors text-sm"
+                    className="text-white/40 hover:text-white transition-colors text-sm font-semibold"
                   >
                     {link.name}
                   </Link>
@@ -103,32 +107,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="font-heading font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-white/60 hover:text-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h4 className="font-heading font-semibold mb-4">Legal</h4>
-            <ul className="space-y-3">
+          {/* Legal */}
+          <div className="lg:pl-8">
+            <h4 className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-primary mb-8">Legal</h4>
+            <ul className="space-y-4">
               {legalLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-primary transition-colors text-sm"
+                    className="text-white/40 hover:text-white transition-colors text-sm font-semibold"
                   >
                     {link.name}
                   </Link>
@@ -138,22 +125,33 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">
-            © 2025 YalHire. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <img
-              src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=100&h=40&fit=crop"
-              alt="SOC2 Certified"
-              className="h-8 opacity-60 hover:opacity-100 transition-opacity rounded"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=40&fit=crop"
-              alt="ISO Certified"
-              className="h-8 opacity-60 hover:opacity-100 transition-opacity rounded"
-            />
+        {/* Bottom Bar - Premium Polish */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="text-white/30 text-xs font-bold tracking-widest uppercase">
+              © 2026 YalHire AI. All rights reserved.
+            </p>
+            <p className="text-white/20 text-[10px] font-medium tracking-tight">
+              Designed for World-Class Recruitment Teams.
+            </p>
+          </div>
+          <div className="flex items-center gap-10">
+            <div className="flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=100&h=40&fit=crop"
+                alt="SOC2 Certified"
+                className="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer"
+              />
+              <span className="text-[8px] text-white/20 mt-1 font-bold">SOC 2 TYPE II</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100&h=40&fit=crop"
+                alt="ISO Certified"
+                className="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer"
+              />
+              <span className="text-[8px] text-white/20 mt-1 font-bold">ISO 27001</span>
+            </div>
           </div>
         </div>
       </div>
