@@ -1,14 +1,38 @@
+import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import { Video, Phone, FileText, ArrowDown, Sparkles } from "lucide-react";
+import { Video, Phone, FileText, ArrowDown, Sparkles, Loader2, Send } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard-new.png";
 import aiAvatar from "@/assets/ai-avatar.png";
+import { aiService, AIResponse } from "@/services/aiService";
 
 const HeroSection = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [aiResponse, setAiResponse] = useState<AIResponse | null>(null);
+
+  const handleSearch = async (e?: FormEvent) => {
+    if (e) e.preventDefault();
+    if (!searchQuery.trim()) return;
+
+    setIsLoading(true);
+    setAiResponse(null);
+
+    try {
+      const response = await aiService.query(searchQuery);
+      setAiResponse(response);
+    } catch (error) {
+      console.error("AI Service Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const quickActions = [
-    { icon: Video, label: "AI Interviewer" },
-    { icon: Phone, label: "AI Phone Screener" },
-    { icon: FileText, label: "AI Resume Screener" },
+    { icon: Video, label: "AI Interviewer", href: "/ai-video-interviewer" },
+    { icon: Phone, label: "AI Phone Screener", href: "/ai-phone-screener" },
+    { icon: FileText, label: "AI Resume Screener", href: "/ai-resume-screener" },
   ];
 
   return (
@@ -33,32 +57,81 @@ const HeroSection = () => {
 
           {/* Premium Chat Input */}
           <div className="relative max-w-3xl mx-auto mb-8 group">
-            <div className="glass-morphism rounded-[2rem] p-4 premium-shadow border-white/60 transition-all duration-500 group-hover:shadow-primary/10 group-focus-within:ring-2 group-focus-within:ring-primary/20">
+            <form
+              onSubmit={handleSearch}
+              className="glass-morphism rounded-[2rem] p-4 premium-shadow border-white/60 transition-all duration-500 group-hover:shadow-primary/10 group-focus-within:ring-2 group-focus-within:ring-primary/20"
+            >
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <Input
                     placeholder="Ask YalHire to schedule a video interview..."
                     className="border-0 bg-transparent focus-visible:ring-0 text-xl font-medium px-4 h-14"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    disabled={isLoading}
                   />
                 </div>
-                <Button className="w-14 h-14 rounded-2xl premium-gradient text-white shadow-lg transition-transform hover:scale-105 active:scale-95">
-                  <ArrowDown className="w-6 h-6 rotate-[-135deg]" />
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-14 h-14 rounded-2xl premium-gradient text-white shadow-lg transition-transform hover:scale-105 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isLoading ? (
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                  ) : (
+                    <ArrowDown className="w-6 h-6 rotate-[-135deg]" />
+                  )}
                 </Button>
               </div>
-            </div>
+            </form>
+
+            {/* AI Response Area */}
+            {aiResponse && (
+              <div className="mt-6 text-left animate-in fade-in slide-in-from-top-4 duration-300">
+                <div className="glass-morphism rounded-3xl p-6 border-primary/20 bg-primary/5">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-brand-accent flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Sparkles className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-lg font-medium text-foreground/90 leading-relaxed mb-4">
+                        {aiResponse.text}
+                      </p>
+
+                      {aiResponse.actions && aiResponse.actions.length > 0 && (
+                        <div className="flex flex-wrap gap-3">
+                          {aiResponse.actions.map((action, idx) => (
+                            <Link
+                              key={idx}
+                              to={action.href}
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/50 hover:bg-white/80 text-primary font-bold text-sm transition-colors border border-primary/10 hover:border-primary/30"
+                            >
+                              {action.label} <Send className="w-3 h-3" />
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Quick Action Chips - Modernized */}
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              {quickActions.map((action) => (
-                <button
-                  key={action.label}
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl glass-morphism border-white/40 hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
-                >
-                  <action.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-bold text-foreground/80 group-hover:text-primary">{action.label}</span>
-                </button>
-              ))}
-            </div>
+            {!aiResponse && (
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                {quickActions.map((action) => (
+                  <Link
+                    key={action.label}
+                    to={action.href}
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl glass-morphism border-white/40 hover:border-primary hover:bg-primary/5 transition-all duration-300 group"
+                  >
+                    <action.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-bold text-foreground/80 group-hover:text-primary">{action.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

@@ -23,7 +23,7 @@ const Header = () => {
   ];
 
   const resourcesLinks = [
-    { name: "Blog", href: "/#blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Help Center", href: "/help" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "API Documentation", href: "/docs" },
@@ -51,9 +51,9 @@ const Header = () => {
           {/* Logo - Refined Size and Typography */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <img src={logo} alt="YalHire Logo" className="w-12 h-12 object-contain transition-transform duration-500 group-hover:scale-110" />
+              <img src={logo} alt="YalHire Logo" className="w-24 h-24 object-contain transition-transform duration-500 group-hover:scale-110" />
             </div>
-            <span className="font-heading font-extrabold text-2xl tracking-tighter text-foreground">
+            <span className="font-heading font-extrabold text-5xl tracking-tighter text-foreground">
               Y<span className="text-primary">'</span>alHire
             </span>
           </Link>

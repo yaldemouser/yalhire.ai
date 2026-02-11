@@ -299,21 +299,23 @@ const PricingSection = () => {
                 </div>
               </div>
 
-              <Button
-                asChild
-                className={`w-full py-8 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-300 ${plan.popular
-                  ? "premium-gradient text-white shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 border-0"
-                  : "bg-white/40 glass-morphism border-white/60 text-foreground hover:bg-primary hover:text-white hover:border-transparent hover:shadow-lg active:scale-95"
-                  }`}
-              >
-                <a
-                  href={(userType === 'employer' ? stripeConfig.plans[plan.name] : stripeConfig.candidatePlans[plan.name])?.[isAnnual ? "annual" : "monthly"] || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {plan.name !== "Free" && (
+                <Button
+                  asChild
+                  className={`w-full py-8 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-300 ${plan.popular
+                    ? "premium-gradient text-white shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 border-0"
+                    : "bg-white/40 glass-morphism border-white/60 text-foreground hover:bg-primary hover:text-white hover:border-transparent hover:shadow-lg active:scale-95"
+                    }`}
                 >
-                  Get Started
-                </a>
-              </Button>
+                  <a
+                    href={(userType === 'employer' ? stripeConfig.plans[plan.name] : stripeConfig.candidatePlans[plan.name])?.[isAnnual ? "annual" : "monthly"] || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Started
+                  </a>
+                </Button>
+              )}
             </div>
           ))}
         </div>

@@ -205,21 +205,23 @@ const Pricing = () => {
                     </div>
                   </div>
 
-                  <Button
-                    asChild
-                    className={`w-full mb-6 ${plan.popular
-                      ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                      : "bg-primary text-primary-foreground hover:bg-lime-dark"
-                      }`}
-                  >
-                    <a
-                      href={stripeConfig.plans[plan.name]?.[isAnnual ? "annual" : "monthly"] || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {plan.name !== "Free" && (
+                    <Button
+                      asChild
+                      className={`w-full mb-6 ${plan.popular
+                        ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                        : "bg-primary text-primary-foreground hover:bg-lime-dark"
+                        }`}
                     >
-                      Buy Now
-                    </a>
-                  </Button>
+                      <a
+                        href={stripeConfig.plans[plan.name]?.[isAnnual ? "annual" : "monthly"] || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Buy Now
+                      </a>
+                    </Button>
+                  )}
 
                   <div className="space-y-3">
                     {Object.entries(plan.features).map(([feature, value]) => (

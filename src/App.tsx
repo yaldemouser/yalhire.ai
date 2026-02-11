@@ -28,6 +28,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Security from "./pages/Security";
 import GDPR from "./pages/GDPR";
 import ComingSoon from "./pages/ComingSoon";
+import Technology from "./pages/Technology";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/about" element={<AboutUs />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/technology" element={<Technology />} />
           <Route path="/press" element={<Press />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -9,10 +9,11 @@ const Footer = () => {
     { name: "AI Resume Screener", href: "/ai-resume-screener" },
     { name: "AI Coding Interviewer", href: "/ai-coding-interviewer" },
     { name: "Pricing", href: "/pricing" },
+    { name: "Technology", href: "/technology" },
   ];
 
   const resourceLinks = [
-    { name: "Blog", href: "/#blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Help Center", href: "/help" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "API Documentation", href: "/docs" },
@@ -49,10 +50,10 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-8 group">
-              <div className="bg-white rounded-2xl p-2 w-12 h-12 flex items-center justify-center transition-transform group-hover:scale-110">
-                <img src={logo} alt="YalHire Logo" className="w-8 h-8 object-contain" />
+              <div className="bg-white rounded-2xl p-2 w-24 h-24 flex items-center justify-center transition-transform group-hover:scale-110">
+                <img src={logo} alt="YalHire Logo" className="w-16 h-16 object-contain" />
               </div>
-              <span className="font-heading font-black text-3xl tracking-tighter">
+              <span className="font-heading font-black text-6xl tracking-tighter">
                 Y<span className="text-primary">'</span>alHire
               </span>
             </Link>
