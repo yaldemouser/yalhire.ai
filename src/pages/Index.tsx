@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustLogos from "@/components/sections/TrustLogos";
+import WorkflowSection from "@/components/sections/WorkflowSection";
 import AISuiteSection from "@/components/sections/AISuiteSection";
 import CostComparisonSection from "@/components/sections/CostComparisonSection";
 import PricingSection from "@/components/sections/PricingSection";
@@ -17,6 +18,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <TrustLogos />
+        <WorkflowSection />
         <AISuiteSection />
         <CostComparisonSection />
         <PricingSection />
@@ -31,3 +33,4 @@ const Index = () => {
 };
 
 export default Index;
+

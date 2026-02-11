@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Video, Phone, FileText, Code, Check } from "lucide-react";
+import { Video, Phone, FileText, Code, Languages, Check, Zap, BarChart, ShieldCheck } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard.png";
 import aiVideoImg from "@/assets/ai-video-interview.png";
 import aiPhoneImg from "@/assets/ai-phone-screen.png";
@@ -58,6 +58,36 @@ const AISuiteSection = () => {
       ],
       image: aiCodingImg,
     },
+    {
+      id: 4,
+      icon: Languages,
+      title: "English Proficiency Test",
+      description: "Assess English communication skills with CEFR-standardized AI evaluation. Screen candidates for fluency, grammar, pronunciation, and vocabulary quickly.",
+      points: [
+        "CEFR-based proficiency levels from A1 to C2",
+        "Evaluates fluency, grammar, pronunciation, and accent",
+        "Cognitive insights including confidence and clarity scores",
+      ],
+      image: heroDashboard,
+    },
+  ];
+
+  const highlights = [
+    {
+      icon: Zap,
+      title: "Human-like Interviews",
+      description: "Our AI interviewer conducts human-like video interviews, coding assessments, phone and resume screenings, which help you find the right talent faster.",
+    },
+    {
+      icon: BarChart,
+      title: "Data-driven Reports",
+      description: "Make your hiring process smarter, simpler and more reliable with detailed data-driven reports and actionable candidate insights.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Interview Intelligence",
+      description: "Built-in cheat detection and proctoring ensure coding assessments and interviews remain fair, secure, and trustworthy.",
+    },
   ];
 
   const activeFeature = features[activeTab];
@@ -72,15 +102,28 @@ const AISuiteSection = () => {
         <div className="text-center mb-24 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 mb-6 backdrop-blur-sm">
             <Check className="w-3 h-3 text-primary" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">All-IN-ONE PLATFORM</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">ALL-IN-ONE PLATFORM</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-black mb-8 tracking-tighter text-gradient leading-tight">
-            THE WORLD'S MOST ADVANCED <br />
-            <span className="text-primary italic">AI RECRUITING SUITE</span>
+            AI RECRUITING{" "}
+            <span className="text-primary italic">SOFTWARE</span>
           </h2>
           <p className="text-xl text-muted-foreground font-medium leading-relaxed">
-            Every tool you need to find, interview, and hire the best talent on the planet, powered by autonomous AI agents.
+            Our AI recruitment software empowers scaling teams and enterprises to streamline the hiring process with intelligent AI agents.
           </p>
+        </div>
+
+        {/* Feature Highlights */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-24">
+          {highlights.map((item) => (
+            <div key={item.title} className="glass-morphism rounded-2xl p-8 text-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl premium-gradient flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
+                <item.icon className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="font-heading font-bold text-lg mb-3">{item.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+            </div>
+          ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -91,8 +134,8 @@ const AISuiteSection = () => {
                 key={feature.id}
                 onClick={() => setActiveTab(index)}
                 className={`w-full text-left p-8 rounded-3xl transition-all duration-500 group relative overflow-hidden ${activeTab === index
-                    ? "glass-morphism border-primary/20 shadow-2xl shadow-primary/5"
-                    : "bg-transparent border border-transparent hover:border-white/40 hover:glass-morphism"
+                  ? "glass-morphism border-primary/20 shadow-2xl shadow-primary/5"
+                  : "bg-transparent border border-transparent hover:border-white/40 hover:glass-morphism"
                   }`}
               >
                 {activeTab === index && (
@@ -101,8 +144,8 @@ const AISuiteSection = () => {
 
                 <div className="flex items-start gap-6">
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${activeTab === index
-                      ? "premium-gradient text-white shadow-lg shadow-primary/20 scale-110"
-                      : "bg-white/40 glass-morphism text-primary group-hover:scale-105"
+                    ? "premium-gradient text-white shadow-lg shadow-primary/20 scale-110"
+                    : "bg-white/40 glass-morphism text-primary group-hover:scale-105"
                     }`}>
                     <feature.icon className="w-7 h-7" />
                   </div>

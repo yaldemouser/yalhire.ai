@@ -8,6 +8,7 @@ const Footer = () => {
     { name: "AI Phone Screener", href: "/ai-phone-screener" },
     { name: "AI Resume Screener", href: "/ai-resume-screener" },
     { name: "AI Coding Interviewer", href: "/ai-coding-interviewer" },
+    { name: "English Proficiency Test", href: "/english-proficiency-test" },
     { name: "Pricing", href: "/pricing" },
     { name: "Technology", href: "/technology" },
   ];
