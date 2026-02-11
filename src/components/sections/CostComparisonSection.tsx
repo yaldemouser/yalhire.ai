@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { DollarSign, Users } from "lucide-react";
-import patternBg from "@/assets/pattern-bg.png";
+import patternBg from "@/assets/pattern-bg_.png";
 
 const CostComparisonSection = () => {
   return (
