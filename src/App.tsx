@@ -29,6 +29,7 @@ import Security from "./pages/Security";
 import GDPR from "./pages/GDPR";
 import ComingSoon from "./pages/ComingSoon";
 import Technology from "./pages/Technology";
+import EnglishProficiencyTest from "./pages/EnglishProficiencyTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/ai-phone-screener" element={<AIPhoneScreener />} />
           <Route path="/ai-resume-screener" element={<AIResumeScreener />} />
           <Route path="/ai-coding-interviewer" element={<AICodingInterviewer />} />
+          <Route path="/english-proficiency-test" element={<EnglishProficiencyTest />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/help" element={<HelpCenter />} />

@@ -16,12 +16,14 @@ const Pricing = () => {
   const [phoneScreenings, setPhoneScreenings] = useState(50);
   const [resumeScreenings, setResumeScreenings] = useState(500);
   const [codingInterviews, setCodingInterviews] = useState(25);
+  const [englishTests, setEnglishTests] = useState(50);
 
   const creditsRequired =
     videoInterviews * 1 +
     phoneScreenings * 0.5 +
     resumeScreenings * 0.25 +
-    codingInterviews * 1;
+    codingInterviews * 1 +
+    englishTests * 0.5;
 
   const plans = [
     {
@@ -36,6 +38,7 @@ const Pricing = () => {
         "AI Coding Interviewer": true,
         "AI Phone Screener": true,
         "AI Resume Screener": true,
+        "English Proficiency Test": true,
         "Users": "1",
         "Active job posts": "1",
         "Video retention": "7 days",
@@ -58,6 +61,7 @@ const Pricing = () => {
         "AI Coding Interviewer": false,
         "AI Phone Screener": true,
         "AI Resume Screener": true,
+        "English Proficiency Test": true,
         "Users": "1",
         "Active job posts": "1",
         "Video retention": "15 days",
@@ -80,6 +84,7 @@ const Pricing = () => {
         "AI Coding Interviewer": true,
         "AI Phone Screener": true,
         "AI Resume Screener": true,
+        "English Proficiency Test": true,
         "Users": "2",
         "Active job posts": "5",
         "Video retention": "30 days",
@@ -102,6 +107,7 @@ const Pricing = () => {
         "AI Coding Interviewer": true,
         "AI Phone Screener": true,
         "AI Resume Screener": true,
+        "English Proficiency Test": true,
         "Users": "5",
         "Active job posts": "20",
         "Video retention": "45 days",
@@ -124,6 +130,7 @@ const Pricing = () => {
         "AI Coding Interviewer": true,
         "AI Phone Screener": true,
         "AI Resume Screener": true,
+        "English Proficiency Test": true,
         "Users": "10",
         "Active job posts": "Unlimited",
         "Video retention": "90 days",
@@ -348,6 +355,20 @@ const Pricing = () => {
                         className="[&_[role=slider]]:bg-primary"
                       />
                     </div>
+
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <label className="font-medium">Total English Proficiency Tests</label>
+                        <span className="text-primary font-bold">{englishTests}</span>
+                      </div>
+                      <Slider
+                        value={[englishTests]}
+                        onValueChange={(v) => setEnglishTests(v[0])}
+                        max={200}
+                        step={1}
+                        className="[&_[role=slider]]:bg-primary"
+                      />
+                    </div>
                   </div>
 
                   {/* Results */}
@@ -370,9 +391,13 @@ const Pricing = () => {
                         <span className="text-muted-foreground">AI Video Interviewer</span>
                         <span className="font-medium">1 credit/Interview</span>
                       </div>
-                      <div className="flex justify-between items-center py-3">
+                      <div className="flex justify-between items-center py-3 border-b border-border">
                         <span className="text-muted-foreground">AI Coding Interviewer</span>
                         <span className="font-medium">1 credit/Interview</span>
+                      </div>
+                      <div className="flex justify-between items-center py-3">
+                        <span className="text-muted-foreground">English Proficiency Test</span>
+                        <span className="font-medium">0.5 credits/Test</span>
                       </div>
                     </div>
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Video, Phone, FileText, ArrowDown, Sparkles, Loader2, Send } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard-new.png";
-import aiAvatar from "@/assets/ai-avatar.png";
+import aiAvatar from "@/assets/ai-avatar_.png";
 import { aiService, AIResponse } from "@/services/aiService";
 
 const HeroSection = () => {
@@ -139,16 +139,16 @@ const HeroSection = () => {
         <div className="max-w-6xl mx-auto text-center mb-24">
           <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/5 border border-primary/10 mb-8 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The Future of AI Recruiting</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">END-TO-END AI RECRUITING</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black mb-8 leading-[0.9] tracking-tight text-gradient">
-            WORLD'S #1 <br />
-            <span className="text-primary">AI HIRING</span> HUB
+            VIBE RECRUITING <br />
+            <span className="text-primary">PLATFORM</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
-            Revolutionize your hiring workflow with autonomous AI agents that interview, screen, and rank candidates globally.
+            From job creation to human handover — automate your entire hiring pipeline with intelligent AI agents that interview, screen, and rank candidates globally.
           </p>
 
           {/* Visual Divider / Dashboard Preview */}
