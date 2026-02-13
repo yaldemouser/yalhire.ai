@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Video, Phone, FileText, ArrowDown, Sparkles, Loader2, Send } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard-new.png";
-import aiAvatar from "@/assets/ai-avatar_.png";
+import aiAvatar from "@/assets/_.png";
 import { aiService, AIResponse } from "@/services/aiService";
 
 const HeroSection = () => {
