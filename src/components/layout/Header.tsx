@@ -119,10 +119,10 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="glass-morphism border-white/20 p-2 min-w-[180px]">
                 <DropdownMenuItem asChild className="rounded-lg focus:bg-primary/10">
-                  <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="w-full px-3 py-2 text-sm font-medium">Employer Login</a>
+                  <a href="https://demo2.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="w-full px-3 py-2 text-sm font-medium">Employer Login</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild className="rounded-lg focus:bg-primary/10">
-                  <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="w-full px-3 py-2 text-sm font-medium">Job Seeker Login</a>
+                  <a href="https://demo2.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="w-full px-3 py-2 text-sm font-medium">Job Seeker Login</a>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -173,10 +173,10 @@ const Header = () => {
               </a>
               <div className="space-y-4 pt-2">
                 <p className="font-bold text-xs text-muted-foreground uppercase tracking-widest px-2">Login</p>
-                <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block px-2 py-1 text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
+                <a href="https://demo2.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block px-2 py-1 text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
                   Employer Login
                 </a>
-                <a href="https://demo.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block px-2 py-1 text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
+                <a href="https://demo2.yalhire.ai/" target="_blank" rel="noopener noreferrer" className="block px-2 py-1 text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
                   Job Seeker Login
                 </a>
               </div>
